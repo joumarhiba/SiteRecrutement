@@ -1,0 +1,55 @@
+<div class="container flex flex-col">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full text-center">
+            <thead class="border-b bg-fuchsia-900">
+              <tr>
+                <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                  #
+                </th>
+                <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                  title
+                </th>
+                <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                  profil
+                </th>
+                <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                  ville
+                </th>
+                <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                  Salaire
+                </th>
+                <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                  Status
+                </th>
+              </tr>
+            </thead >
+            <tbody *ngFor="let offre of offres | paginate: { itemsPerPage: 5  , currentPage: p }">
+              <tr class="bg-white border-b">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{offre.id}}</td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  {{offre.title}}
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  {{offre.profil}}
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  {{offre.ville}}
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  {{offre.salaire}}
+                  <p *ngIf="offre.salaire == null">A Discuter</p>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  <button type="disabled" *ngIf="!offre.status" type="button" (click)="updateStatus(offre)" class="bg-red-300 text-red-800 font-semibold rounded-lg p-2">{{offre.status}}</button>
+                  <button type="button" *ngIf="offre.status" class="bg-green-300 text-green-800 font-semibold rounded-lg p-2">{{offre.status}}</button>
+                </td>
+              </tr >
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <pagination-controls class=" text-center myPag" (pageChange)="p = $event"></pagination-controls>
+  </div>

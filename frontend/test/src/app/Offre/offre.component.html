@@ -1,0 +1,47 @@
+<div class="container p-4">
+  <section class="flex justify-content-center">
+    <form #addOffreForm="ngForm" (ngSubmit)="addOffre(addOffreForm)">
+        <div class="modal-body mx-3">
+          <p class="p-4 text-center py-8">Veuillez entrer les Détails de l'offre</p>
+          <div class="md-form mb-5" >
+            <input type="text" id="form34" class="form-control validate" ngModel name="title" autocomplete="off" placeholder="Le titre du poste">
+          </div>
+
+          <div class="md-form mb-5">
+            <textarea id="form29" class="form-control validate resize-none rounded-md" ngModel name="description" autocomplete="off" placeholder="Description..."></textarea>
+          </div>
+
+          <div class="md-form mb-5">
+            <select name="niveau" ngModel id="niveau" class="border border-gray-300 text text-sm rounded-lg block w-full p-2.5 form-control validate">
+                <option>Niveau</option>
+                <option>Bac</option>
+                <option>Bac + 2</option>
+                <option>Bac + 3</option>
+                <option>Bac + 4</option>
+                <option>Bac + 5</option>
+                <option>Bac + 7</option>
+            </select>
+        </div>
+
+          <div class="md-form mb-5">
+            <input type="text" id="form32" class="form-control validate" ngModel name="ville" autocomplete="off" placeholder="ville">
+          </div>
+
+          <div class="md-form mb-5">
+            <input type="text" id="form3" class="form-control validate" ngModel name="profil" autocomplete="off" placeholder="le profil demandé">
+          </div>
+
+          <div class="md-form mb-5">
+            <input type="number" id="form3" class="form-control validate" ngModel name="salaire" autocomplete="off" placeholder="Salaire">
+          </div>
+        </div>
+        <div class=" d-flex justify-content-center pb-4 gap-4">
+          <button type="submit" class="p-2 rounded-md bg-fuchsia-900 text-white" [disabled]="addOffreForm.invalid">
+            Save
+            <i class="fa fa-paper-plane-o ml-1"></i>
+          </button>
+          <button type="button" data-dismiss="modal" id="close-modal" class="rounded-md text-fuchsia-900 border-2 border-fuchsia-900 p-2">close</button>
+        </div>
+      </form>
+  </section>
+</div>
