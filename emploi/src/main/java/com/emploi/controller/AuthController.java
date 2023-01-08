@@ -46,9 +46,15 @@ public class AuthController {
 
 
 
-    @PostMapping("/auth/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request){
-        return ResponseEntity.ok(authService.authenticate(request));
+    @PostMapping("/auth/authenticateCompany")
+    public ResponseEntity<AuthenticationResponse> authenticateCompany(@RequestBody AuthenticationRequest request) throws Exception {
+        return ResponseEntity.ok(authService.authenticateCompany(request));
+
+    }
+
+    @PostMapping("/auth/authenticateAdmin")
+    public ResponseEntity<AuthenticationResponse> authenticateAdmin(@RequestBody AuthenticationRequest request) throws Exception {
+        return ResponseEntity.ok(authService.authenticateAdmin(request));
 
     }
 

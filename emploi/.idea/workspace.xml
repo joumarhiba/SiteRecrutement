@@ -4,40 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d57a17ea-4a48-445d-8fae-86f5f1adb6fe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/emploi/helpers/AuthenticationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/emploi/helpers/RegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/emploi/security/ApplicationConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/emploi/service/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/emploi/helpers/AuthenticationResponse$AuthenticationResponseBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/emploi/helpers/AuthenticationResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/emploi/helpers/RegisterRequest$RegisterRequestBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/emploi/helpers/RegisterRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/emploi/model/Admin$AdminBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/emploi/model/Company$CompanyBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/emploi/security/ApplicationConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/emploi/service/AuthService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/emploi/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emploi/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/emploi/controller/OffreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emploi/controller/OffreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/emploi/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emploi/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/emploi/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emploi/model/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/emploi/repository/OffreRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emploi/repository/OffreRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/emploi/security/JwtAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emploi/security/JwtAuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/emploi/security/JwtHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emploi/security/JwtHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/emploi/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emploi/security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/emploi/service/OffreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emploi/service/OffreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/emploi/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/emploi/controller/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/emploi/controller/OffreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/emploi/controller/OffreController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/emploi/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/emploi/model/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/emploi/model/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/emploi/model/Company.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/emploi/security/JwtAuthFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/emploi/security/JwtAuthFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/emploi/security/JwtHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/emploi/security/JwtHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/emploi/security/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/emploi/security/WebSecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/emploi/service/OffreService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/emploi/service/OffreService.class" afterDir="false" />
-    </list>
+    <list default="true" id="d57a17ea-4a48-445d-8fae-86f5f1adb6fe" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +20,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />

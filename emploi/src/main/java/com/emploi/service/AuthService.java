@@ -16,9 +16,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -61,18 +65,41 @@ public class AuthService {
       return  null;
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
-        System.out.println("we're heeeeeeeeeeeeeeeeere "+ request.getEmail() + " && "+request.getPassword());
-        String codedPwd = bCryptPasswordEncoder.encode(request.getPassword());
+    public AuthenticationResponse authenticateCompany(AuthenticationRequest request) throws Exception {
 //        authenticationManager.authenticate(
 //                new UsernamePasswordAuthenticationToken(
-//                        request.getEmail(), codedPwd
+//                        request.getEmail(), request.getPassword()
 //                )
 //        );
-        System.out.println("we still here...............");
-        var company = companyRepo.findByEmail(request.getEmail()).orElseThrow();
-        var jwtToken =jwtHandler.generateToken(company);
-        return AuthenticationResponse.builder().token(jwtToken)
-                .build();
+        UserDetails company = companyRepo.findByEmail(request.getEmail()).orElseThrow();
+        if(company != null ){
+
+            var jwtToken =jwtHandler.generateToken(company);
+            return AuthenticationResponse.builder().token(jwtToken)
+                    .build();
+        } else {
+            System.out.println("this company not found");
+        }
+
+        return null;
+        // var company = companyRepo.findByEmail(request.getEmail()).orElseThrow();
+//        var jwtToken =jwtHandler.generateToken(company);
+//        return AuthenticationResponse.builder().token(jwtToken)
+//                .build();
+    }
+
+
+    public AuthenticationResponse authenticateAdmin(AuthenticationRequest request) throws Exception {
+
+        UserDetails admin = adminRepo.findByEmail(request.getEmail()).orElseThrow(()->new NoSuchElementException("cet utilisateur n'est pas trouvé !!"));
+        if(admin != null ){
+
+            var jwtToken =jwtHandler.generateToken(admin);
+            return AuthenticationResponse.builder().token(jwtToken)
+                    .build();
+        } else {
+            System.out.println("this admin not found");
+        }
+        return null;
     }
 }
