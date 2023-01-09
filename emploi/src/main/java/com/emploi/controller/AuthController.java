@@ -32,10 +32,10 @@ public class AuthController {
 
     private final AuthService authService;
 
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/auth/")
     public String gets(){
-        return "hhello";
+        return "hello yeeeeees we do it !!";
     }
 
     @PostMapping("/auth/register")

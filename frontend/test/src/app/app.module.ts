@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { ProfilComponent } from './profil/profil.component';
 import { OffreComponent } from './offre/offre.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { OffreComponent } from './offre/offre.component';
     HomeComponent,
     AdminComponent,
     ProfilComponent,
-    OffreComponent
+    OffreComponent,
+    AuthenticationComponent
   ],
   imports: [
     NgxPaginationModule,
