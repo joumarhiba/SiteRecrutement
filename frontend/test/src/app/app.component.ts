@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { HomeService } from './home/home.service';
 
 
 @Component({
@@ -8,28 +9,20 @@ import { Location } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
-  public href: string = "";
+export class AppComponent implements OnInit{
 
-   constructor(location: Location,private router: Router){}
+   constructor(private homeService: HomeService){}
 
-   public style(): void
-   {
-    this.href = this.router.url;
-  console.log("the url : "+this.router.url);
-     if(this.href === '/company'){
-        const a = document.getElementById('companyID')
-        if(a!= null){
-          a.style.display = 'none';
-        }
-     }
+   public loggedIn = false;
+
+   ngOnInit() {
+    this.loggedIn = this.homeService.isLoggedIn();
    }
-  // ngOnInit() {
-  //     this.href = this.router.url;
-  //     console.log("the url : "+this.router.url);
-  // }
 
-
+   logoutUser() {
+    this.homeService.logout()
+    location.reload()
+   }
 
 
 }

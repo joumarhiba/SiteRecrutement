@@ -1,11 +1,11 @@
 
 <div class="flex justify-content-center gap-12">
-<a routerLink="/home">Home</a>
-
-<button (click)="style()" routerLink="/company"  id="companyID">Company</button>
+    <a routerLink="/home">Home</a>
+    <a *ngIf="!loggedIn" routerLink="/company">Login</a>
+    <a *ngIf="loggedIn" (click)="logoutUser()">Logout</a>
 </div>
 
-<app-authentication></app-authentication>
+<!-- <app-authentication></app-authentication> -->
 
 <router-outlet></router-outlet>
 

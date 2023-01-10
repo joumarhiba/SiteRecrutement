@@ -3,14 +3,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Offre } from '../offre/offre';
 import { Company } from '../Company/company';
-import { Admin } from '../admin/admin';
 
 
 @Injectable({
     providedIn:'root'
 })
 
-export class OffreService {
+export class HomeService {
     private apiServerUrl = 'http://localhost:8080';
 
 constructor(private http: HttpClient) { }
@@ -50,8 +49,49 @@ public addCompany(company: Company): Observable<Company>{
 }
 
 
-public login( user: Company | Admin, userRole: string) : Observable<Company | Admin>{
-    return this.http.post<any>(`${this.apiServerUrl}/auth/${userRole}`,user);
+
+
+
+
+// calling to server to generate the token
+generateCompanyToken(credentials: any){
+    //token generate
+    return this.http.post(`${this.apiServerUrl}/auth/authenticateCompany`,credentials)
+
+
+}
+
+
+
+//for login company
+loginCompany(token: any) {
+    localStorage.setItem("tokenCompany",token);
+    return true;
+}
+
+// to check if the user is logged in or not
+isLoggedIn(){
+    let tokenCompany = localStorage.getItem("tokenCompany");
+    if(tokenCompany == null || tokenCompany== '' || tokenCompany == undefined) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+getToken(){
+    return localStorage.getItem("tokenCompany")
+}
+
+logout(){
+    localStorage.removeItem("tokenCompany");
+    return true
+}
+
+
+public login( user: Company) : Observable<Company>{
+    return this.http.post<any>(`${this.apiServerUrl}/auth/authenticateCompany`,user);
 }
 
 }

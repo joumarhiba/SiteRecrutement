@@ -3,7 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http'
 import { NgForm } from '@angular/forms';
 import { Offre } from '../offre/offre';
 import { Company } from '../Company/company';
-import { OffreService } from './home.service';
+import { HomeService } from './home.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,14 +20,20 @@ export class HomeComponent implements OnInit {
   public companies: Company[];
   public editoffre?: Offre ;
   public loginCompany?: Company;
+  public credentials = {
+    email : '',
+    password : ''
+  }
 
-  constructor(private offreService: OffreService, private router: Router){}
+  constructor(private homeService: HomeService, private router: Router){}
 
   ngOnInit(): void {
     this.getValidatedOffres();
   }
+
+
   getValidatedOffres(): void {
-    this.offreService.getValidatedOffres().subscribe(
+    this.homeService.getValidatedOffres().subscribe(
       (response: Offre[]) => {
           this.offres = response;
       },
@@ -64,7 +70,7 @@ export class HomeComponent implements OnInit {
 
   public getOffreDetails(editoffre: Offre): void
   {
-  this.offreService.getOffreDetails(editoffre.id).subscribe(
+  this.homeService.getOffreDetails(editoffre.id).subscribe(
     (response) => {
       console.log(response)
       console.log(editoffre.id);
@@ -86,7 +92,7 @@ export class HomeComponent implements OnInit {
   public addCompany(signUpForm: NgForm): void
   {
     document.getElementById('close-modal')?.click();
-  this.offreService.addCompany(signUpForm.value).subscribe(
+  this.homeService.addCompany(signUpForm.value).subscribe(
     (response: Company) => {
       console.log(response)
       this.getCompanies
@@ -101,7 +107,7 @@ export class HomeComponent implements OnInit {
 
 
   public getCompanies(): void {
-    this.offreService.getCompanies().subscribe(
+    this.homeService.getCompanies().subscribe(
       (response: Company[]) => {
           this.companies = response;
       },
@@ -114,9 +120,26 @@ export class HomeComponent implements OnInit {
 
   // --------------------------------------------------------------
 
-  public login(LoginForm: NgForm,userID?: string):void  {
-    console.log("we're in the component");
-    this.router.navigate(['admin'])
+  public OnSubmit():void  {
+    if(this.credentials.email != '' && this.credentials.password != '') {
+        this.homeService.generateCompanyToken(this.credentials).subscribe(
+          (response: any) => {
+            console.log(response.token);
+            this.homeService.loginCompany(response.token);
+            window.location.href='/company'
+
+          },
+          (error: HttpErrorResponse) => {
+            console.log(error);
+            }
+          );
+    }
+    else {
+      console.log("Fields are emplty !");
+
+    }
+
+    // this.router.navigate(['admin'])
     // if(userID != null){
     // this.offreService.login(LoginForm.value, userID).subscribe(
     //   (resp: Company | Admin) => {
