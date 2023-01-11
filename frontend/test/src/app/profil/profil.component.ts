@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProfilService } from './profil.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ProfilService } from './profil.service';
 })
 export class ProfilComponent {
 
-  constructor(private profilService: ProfilService){}
+  constructor(private profilService: ProfilService, private snackBar: MatSnackBar){}
 
   public file: File;
 
@@ -18,10 +19,16 @@ export class ProfilComponent {
     this.file = event.target.files[0]
   }
 
+  openSnackBar(message: string) {
+    this.snackBar.open(message);
+  }
+
+
   upload() {
     if (this.file) {
       this.profilService.uploadfile(this.file).subscribe(resp => {
-        alert("Uploaded")
+        console.log(this.file);
+
       })
     } else {
       alert("Please select a file first")

@@ -20,7 +20,8 @@ import { OffreComponent } from './offre/offre.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'
-import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar'
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { SidebarComponent } from './sidebar/sidebar.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar'
     AdminComponent,
     ProfilComponent,
     OffreComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    SidebarComponent
   ],
   imports: [
     MatSlideToggleModule,

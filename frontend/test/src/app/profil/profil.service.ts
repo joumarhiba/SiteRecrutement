@@ -15,7 +15,7 @@ export class ProfilService {
   public uploadfile(file: File) {
     let formParams = new FormData();
     formParams.append('image', file)
-    formParams.append('id', '12');
+    formParams.append('id', '3');
     return this.http.post('http://localhost:8080/Company/upload', formParams)
   }
 

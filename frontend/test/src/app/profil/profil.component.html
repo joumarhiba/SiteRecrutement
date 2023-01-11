@@ -1,4 +1,21 @@
-<p>profil works!</p>
+<app-sidebar></app-sidebar>
+<main class="container text-center mt-4">
+    <!-- <div class="ml-96 mt-4">
+        <input type="file" ngModel name="image" (change)="this.onFilechange($event)" id="formFile">
+        <button type="button" (click)="upload()">Submit</button>
+    </div> -->
 
-<input type="file" ngModel name="image" (change)="this.onFilechange($event)" id="formFile">
-<button type="button" (click)="upload()">Submit</button>
+
+<div class="flex items-center justify-center flex-col w-full">
+    <label for="formFile" class="flex flex-col items-center justify-center w-1/2 h-64 border-2 border-fuchsia-900 border-dashed rounded-lg cursor-pointer bg-white  hover:bg-fuxhsia-800 mb-8">
+        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+            <svg aria-hidden="true" class="w-10 h-10 mb-3 text-fuchsia-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+            <p class="mb-2 text-sm text-black"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+            <p class="text-xs text-black ">PNG, JPG (MAX. 800x400px)</p>
+        </div>
+        <input ngModel name="image" (change)="this.onFilechange($event)" id="formFile" type="file" class="hidden" />
+    </label>
+    <button mat-stroked-button (click)="openSnackBar('l\'image est téléchargée ! ')" type="button" (click)="upload()" class="bg-fuchsia-900 p-2 rounded-lg text-white" >Submit</button>
+</div>
+
+</main>
