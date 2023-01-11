@@ -47,8 +47,6 @@ export class AppComponent implements OnInit{
    }
 
 
-
-
    public onOpenModal(company?: Company,mode? : string) : void{
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
@@ -64,7 +62,6 @@ export class AppComponent implements OnInit{
       this.loginCompany = company;
       button.setAttribute('data-target', '#LoginCompanyModal')
     }
-
     container?.appendChild(button);
     button.click();
   }
@@ -103,7 +100,7 @@ export class AppComponent implements OnInit{
           );
     }
     else {
-      console.log("Fields are emplty !");
+      console.log("Fields are empty !");
 
     }
 }
@@ -128,6 +125,7 @@ public LoginAdmin():void  {
 
   }
 }
+
 
 
 }

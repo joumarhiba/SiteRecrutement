@@ -81,8 +81,8 @@ getToken(){
 }
 
 logout(){
-    localStorage.removeItem("tokenCompany");
     localStorage.removeItem("tokenAdmin");
+    localStorage.removeItem("tokenCompany");
     return true
 }
 // ----------------Admin---------------------------------
@@ -116,5 +116,6 @@ isAdminLoggedIn(){
         return true;
     }
 }
+
 
 }

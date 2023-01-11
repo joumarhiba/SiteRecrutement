@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'addOffre', component: OffreComponent, pathMatch:'full', canActivate:[AuthGuard ]},
   { path: 'profil', component: ProfilComponent},
   { path: '', redirectTo: '/AdminComponent', pathMatch: 'full' },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent , pathMatch:'full', canActivate: [AuthGuard] },
 ];
 
 @NgModule({

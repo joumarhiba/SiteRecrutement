@@ -17,13 +17,10 @@ constructor(private homeService: HomeService, private router: Router) {}
       if(this.homeService.isLoggedIn()){
         return true
       }
-      this.router.navigate(['home'])
-
       if(this.homeService.isAdminLoggedIn()){
         return true
       }
       this.router.navigate(['home'])
-
     return false;
   }
 
