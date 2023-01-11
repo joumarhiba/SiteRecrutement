@@ -20,6 +20,7 @@ import { OffreComponent } from './offre/offre.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar'
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {MatIconModule} from '@angular/material/icon'
     NgxPaginationModule,
     BrowserModule,
     MatIconModule,
+    MatSnackBarModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatDividerModule,

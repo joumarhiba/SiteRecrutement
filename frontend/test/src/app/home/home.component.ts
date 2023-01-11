@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http'
-import { NgForm } from '@angular/forms';
 import { Offre } from '../offre/offre';
 import { Company } from '../Company/company';
 import { HomeService } from './home.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -25,11 +23,12 @@ export class HomeComponent implements OnInit {
     password : ''
   }
 
-  constructor(private homeService: HomeService, private router: Router){}
+  constructor(private homeService: HomeService){}
 
   ngOnInit(): void {
     this.getValidatedOffres();
   }
+
 
 
   getValidatedOffres(): void {

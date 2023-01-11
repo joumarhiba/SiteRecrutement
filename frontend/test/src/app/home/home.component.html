@@ -1,18 +1,18 @@
 <div id="main-container">
     <br>
-    <div class="container flex flex-content-center gap-8">
+    <div class="container  flex-content-center gap-8">
 
 
-    <div *ngFor="let offre of offres | paginate: { itemsPerPage: 3  , currentPage: p }" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md">
+    <div *ngFor="let offre of offres | paginate: { itemsPerPage: 3  , currentPage: p }" class="bootstrap-wrapper mb-4 bg-white border border-fuchsia-900  rounded-lg ">
       <div class="p-5">
           <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{ offre.title }}</h5>
           </a>
           <p>{{  offre.ville }}</p>
+          <p class=" overflow-hidden"> {{offre.description}}</p>
           <button (click)="onOpenModal(offre, undefined, 'readMore')" (click)="getOffreDetails(offre)" type="button" class="bg-fuchsia-900 p-2 text-white rounded-md" data-toggle="modal" data-target="#ReadMoreModal">
-            Read More
-           <span><svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-           </span> </button>
+            voir plus
+           </button>
 
       </div>
     </div>

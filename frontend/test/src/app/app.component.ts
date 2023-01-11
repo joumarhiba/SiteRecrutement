@@ -6,6 +6,7 @@ import { Offre } from './offre/offre';
 import { Company } from './Company/company';
 import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AppComponent implements OnInit{
 
-   constructor(private homeService: HomeService, private router: Router){}
+   constructor(private homeService: HomeService, private _snackBar: MatSnackBar){}
 
    public offres: Offre[];
    public companies: Company[];
@@ -29,10 +30,12 @@ export class AppComponent implements OnInit{
     email : '',
     password : ''
   }
-
-
    public loggedIn = false;
    public AdminloggedIn = false;
+
+   openSnackBar(message: string) {
+    this._snackBar.open(message);
+  }
 
 
    ngOnInit() {
