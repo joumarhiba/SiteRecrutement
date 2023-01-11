@@ -55,9 +55,6 @@ export class HomeComponent implements OnInit {
       this.editoffre = offre;
       button.setAttribute('data-target','#ReadMoreModal')
     }
-    if(mode === 'signUp'){
-      button.setAttribute('data-target','#SignUpModal')
-    }
     if(mode === "loginCompany") {
       document.getElementById('close-modal')?.click();
       this.loginCompany = company;
@@ -85,27 +82,6 @@ export class HomeComponent implements OnInit {
   );
   }
 
-
-  // -------------------------------company --------------------------------
-
-
-  public addCompany(signUpForm: NgForm): void
-  {
-    document.getElementById('close-modal')?.click();
-  this.homeService.addCompany(signUpForm.value).subscribe(
-    (response: Company) => {
-      console.log(response)
-      this.getCompanies
-    },
-    (error: HttpErrorResponse) => {
-      console.log(error);
-      console.log(signUpForm);
-      alert(error.message);
-      }
-  );
-  }
-
-
   public getCompanies(): void {
     this.homeService.getCompanies().subscribe(
       (response: Company[]) => {
@@ -117,38 +93,4 @@ export class HomeComponent implements OnInit {
     );
   }
 
-
-  // --------------------------------------------------------------
-
-  public OnSubmit():void  {
-    if(this.credentials.email != '' && this.credentials.password != '') {
-        this.homeService.generateCompanyToken(this.credentials).subscribe(
-          (response: any) => {
-            console.log(response.token);
-            this.homeService.loginCompany(response.token);
-            window.location.href='/company'
-
-          },
-          (error: HttpErrorResponse) => {
-            console.log(error);
-            }
-          );
-    }
-    else {
-      console.log("Fields are emplty !");
-
-    }
-
-    // this.router.navigate(['admin'])
-    // if(userID != null){
-    // this.offreService.login(LoginForm.value, userID).subscribe(
-    //   (resp: Company | Admin) => {
-    //       console.log("the response : "+resp);
-    //   },
-    //     (error: HttpErrorResponse) => {
-    //       alert(error.message);
-    //     }
-    // );
-  // }
-}
 }

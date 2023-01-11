@@ -57,11 +57,7 @@ public addCompany(company: Company): Observable<Company>{
 generateCompanyToken(credentials: any){
     //token generate
     return this.http.post(`${this.apiServerUrl}/auth/authenticateCompany`,credentials)
-
-
 }
-
-
 
 //for login company
 loginCompany(token: any) {
@@ -86,12 +82,39 @@ getToken(){
 
 logout(){
     localStorage.removeItem("tokenCompany");
+    localStorage.removeItem("tokenAdmin");
     return true
 }
+// ----------------Admin---------------------------------
 
 
-public login( user: Company) : Observable<Company>{
-    return this.http.post<any>(`${this.apiServerUrl}/auth/authenticateCompany`,user);
+// calling to server to generate the token for admin
+generateAdminToken(aCredentials: any){
+    //token generate
+    return this.http.post(`${this.apiServerUrl}/auth/authenticateAdmin`,aCredentials)
+}
+
+//for loginadmin
+loginAdmin(token: any) {
+    localStorage.setItem("tokenAdmin",token);
+    return true;
+}
+
+// to check if the user is logged in or not
+
+
+getTokenAdmin(){
+    return localStorage.getItem("tokenAdmin")
+}
+// to check if the user is logged in or not
+isAdminLoggedIn(){
+    let tokenAdmin = localStorage.getItem("tokenAdmin")
+    if(tokenAdmin == null || tokenAdmin == '' || tokenAdmin== undefined) {
+        return false;
+    }
+    else {
+        return true;
+    }
 }
 
 }

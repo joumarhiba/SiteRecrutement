@@ -10,7 +10,7 @@ import { ProfilComponent } from './profil/profil.component';
 const routes: Routes = [
   { path:'company', component:CompanyComponent, pathMatch:'full', canActivate:[AuthGuard ]},
   { path: 'home', component: HomeComponent },
-  { path: 'addOffre', component: OffreComponent},
+  { path: 'addOffre', component: OffreComponent, pathMatch:'full', canActivate:[AuthGuard ]},
   { path: 'profil', component: ProfilComponent},
   { path: '', redirectTo: '/AdminComponent', pathMatch: 'full' },
   { path: 'admin', component: AdminComponent },

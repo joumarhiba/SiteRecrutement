@@ -19,6 +19,11 @@ constructor(private homeService: HomeService, private router: Router) {}
       }
       this.router.navigate(['home'])
 
+      if(this.homeService.isAdminLoggedIn()){
+        return true
+      }
+      this.router.navigate(['home'])
+
     return false;
   }
 
