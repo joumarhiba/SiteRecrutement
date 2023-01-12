@@ -39,7 +39,8 @@ public class OffreService {
         return "L'offre "+id+ " est supprimée ...";
     }
     public Offre updateOffre(Offre offre){
-        Offre existsOffre = offreRepo.findById(offre.getId()).orElse(null);
+        Long offreId = offre.getId();
+        Offre existsOffre = offreRepo.findById(offreId).get();
         existsOffre.setCompany(offre.getCompany());
         existsOffre.setNiveau(offre.getNiveau());
         existsOffre.setProfil(offre.getProfil());
