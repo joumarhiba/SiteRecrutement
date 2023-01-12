@@ -55,6 +55,17 @@ MyRH  </a>
         <!-- Divider -->
         <hr class="my-4 md:min-w-full" />
 
+
+        <div class="container row">
+          <div class="col-md-12">
+              <div *ngIf=retrievedImage>
+                  <img [src]="retrievedImage">
+              </div>
+          </div>
+      </div>
+
+
+
     <!-- Navigation -->
     <ul class="md:flex-col md:min-w-full flex flex-col list-none">
 

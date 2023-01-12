@@ -1,5 +1,5 @@
 <app-sidebar></app-sidebar>
-<main class="container text-center mt-4">
+<main class="container flex items-center justify-center flex-col text-center mt-4">
     <!-- <div class="ml-96 mt-4">
         <input type="file" ngModel name="image" (change)="this.onFilechange($event)" id="formFile">
         <button type="button" (click)="upload()">Submit</button>
@@ -17,5 +17,7 @@
     </label>
     <button mat-stroked-button (click)="openSnackBar('l\'image est téléchargée ! ')" type="button" (click)="upload()" class="bg-fuchsia-900 p-2 rounded-lg text-white" >Submit</button>
 </div>
+
+<img class="mt-6" [src]="imgURL" height="90px" width="150px" *ngIf="imgURL">
 
 </main>
