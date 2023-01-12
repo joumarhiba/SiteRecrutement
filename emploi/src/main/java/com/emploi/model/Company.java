@@ -36,6 +36,10 @@ public class Company implements UserDetails {
     @JsonIgnore
     private List<Offre> offres;
 
+    public Company(Long id) {
+        this.id = id;
+    }
+
 
     public void setTelephone(String telephone) throws Exception {
         boolean regex= Pattern.compile("(\\+212|0)([ \\-_/]*)(\\d[ \\-_/]*){9}").matcher(telephone).matches();

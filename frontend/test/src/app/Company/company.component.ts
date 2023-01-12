@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Company } from '../Company/company';
 import { CompanyService } from '../Company/company.service';
 import { Offre } from '../offre/offre';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { OffreService } from '../offre/offre.service';
+
 
 @Component({
   selector: 'app-company',
@@ -21,25 +24,41 @@ export class CompanyComponent implements OnInit{
     userRole:'COMPANY'
   }
 
-  constructor(private companyService: CompanyService){}
+  public offreToUpdate: Offre = {
+    id:0,
+    title:'',
+    description:'',
+    profil:'',
+    niveau:'',
+    ville:'',
+    salaire:'',
+    status:false,
+    company_id:0,
+    admin_id:1
+  }
+
+  constructor(private companyService: CompanyService, private offreService: OffreService){}
   ngOnInit(): void {
     this.getOffreByCompany(this.company)
   }
 
 
-  public editModal(offre: Offre, mode : string) : void{
-    const container = document.getElementById('main-container');
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
 
-    if(mode === 'edit'){
-      button.setAttribute('data-target','#editModal')
-    }
+  public edit(offre: Offre) : void{
+    this.offreToUpdate = offre;
+  }
 
-    container?.appendChild(button);
-    button.click();
+  public updateOffre() {
+    document.getElementById('close-modal')?.click();
+this.offreService.updateOffre(this.offreToUpdate).subscribe(
+  (response: Offre) => {
+  console.log("the response "+response.company_id);
+  console.log("the offre to upadte "+this.offreToUpdate.company_id);
+  },
+    (error: HttpErrorResponse) => {
+    alert(error.message);
+  }
+)
   }
 
 
@@ -49,7 +68,7 @@ public getCompanies(): void {
         this.companies = response;
     },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        console.log(error.message);
       }
   );
 }
@@ -66,6 +85,5 @@ public getOffreByCompany(company: Company) {
       }
   );
 }
-
 
 }

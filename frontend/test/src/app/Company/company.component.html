@@ -19,10 +19,10 @@
                   <p>{{offre.profil}}</p>
                   <p>Niveau : {{offre.niveau}}</p>
                   <p>{{offre.salaire}}</p>
-                  <p *ngIf="offre.salaire == null"> -- </p>
+                  <p *ngIf="offre.salaire == null"> A Discuter </p>
                   <div class="flex space-x-80">
                     <p class="text-sm text-gray-500">à : {{offre.ville}}</p>
-                    <button class="border-2 border-fuchsia-900 p-2 rounded text-fuchsia-900">edit &nbsp;
+                    <button class="border-2 border-fuchsia-900 p-2 rounded text-fuchsia-900" data-toggle="modal" data-target="#exampleModal" (click)="edit(offre)" >edit
                       <i class="fa fa-pencil"></i>
                     </button>
                   </div>
@@ -39,4 +39,62 @@
 </section>
 </div>
 </main>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Offre</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        <form #updateOffreForm="ngForm" (ngSubmit)="updateOffre()">
+          <div class="modal-body mx-3">
+            <p class="p-4 text-center py-8">Modifier les information de votre offre</p>
+            <div class="md-form mb-3" >
+              <input type="text" id="form34" #title class="form-control validate" [(ngModel)]="offreToUpdate.title" name="title" autocomplete="off" placeholder="Le titre du poste">
+            </div>
+
+            <div class="md-form mb-3">
+              <textarea id="form29" #description class="form-control validate resize-none rounded-md" [(ngModel)]="offreToUpdate.description" name="description" autocomplete="off" placeholder="Description..."></textarea>
+            </div>
+
+            <div class="md-form mb-3">
+              <select name="niveau" #niveau [(ngModel)]="offreToUpdate.niveau" id="niveau" class="border border-gray-300 text text-sm rounded-lg block w-full p-2.5 form-control validate">
+                  <option>Bac</option>
+                  <option>Bac + 2</option>
+                  <option>Bac + 3</option>
+                  <option>Bac + 4</option>
+                  <option>Bac + 5</option>
+                  <option>Bac + 7</option>
+              </select>
+          </div>
+
+            <div class="md-form mb-3">
+              <input type="text" #ville id="form32" class="form-control validate" [(ngModel)]="offreToUpdate.ville" name="ville" autocomplete="off" placeholder="ville">
+            </div>
+
+            <div class="md-form mb-3">
+              <input type="text" #profil id="form3" class="form-control validate" [(ngModel)]="offreToUpdate.profil" name="profil" autocomplete="off" placeholder="le profil demandé">
+              <!-- <input type="text"  #company_id id="form3" class="form-control validate" [(ngModel)]="offreToUpdate.company_id" name="company_id" autocomplete="off"> -->
+              <!-- <input type="text" disabled #admin_id id="form3" class="form-control validate" [(ngModel)]="offreToUpdate.admin_id" name="admin_id" value="1" autocomplete="off"> -->
+            </div>
+
+            <div class="md-form mb-3">
+              <input type="number" #salaire id="form3" class="form-control validate" [(ngModel)]="offreToUpdate.salaire" name="salaire" autocomplete="off" placeholder="Salaire">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="text-fuchsia-900 border p-2 rounded-lg border-fuchsia-900"  data-dismiss="modal" id="close-modal">Close</button>
+            <button type="submit" class="bg-fuchsia-900 text-white rounded-lg p-2">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <router-outlet></router-outlet>

@@ -19,7 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OffreService {
     private final OffreRepo offreRepo;
-
+    Company company_id = new Company(Long.valueOf(3));
     public Offre addOffre(Offre offre){
        offre.setAdmin(new Admin(Long.valueOf(1), "admin", "admin@gmail.com", "12345678", UserRole.ADMIN, null));
         offre.setCompany(new Company(Long.valueOf(3),"company", "company@gmail.com", "12345678", "AAAAAAAAAA", "0612347890",UserRole.COMPANY, null));
@@ -41,7 +41,7 @@ public class OffreService {
     public Offre updateOffre(Offre offre){
         Long offreId = offre.getId();
         Offre existsOffre = offreRepo.findById(offreId).get();
-        existsOffre.setCompany(offre.getCompany());
+        existsOffre.setCompany(company_id);
         existsOffre.setNiveau(offre.getNiveau());
         existsOffre.setProfil(offre.getProfil());
         existsOffre.setDescription(offre.getDescription());

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import {MatDividerModule} from '@angular/material/divider';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
@@ -35,6 +36,7 @@ import { SidebarComponent } from './sidebar/sidebar.component'
     SidebarComponent
   ],
   imports: [
+    MatDialogModule,
     MatSlideToggleModule,
     NgxPaginationModule,
     BrowserModule,
