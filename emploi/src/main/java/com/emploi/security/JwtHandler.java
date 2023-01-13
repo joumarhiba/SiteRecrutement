@@ -21,6 +21,7 @@ public class JwtHandler {
     private String SECRET_KEY = "SPRING_AUTH_JWT_SECRET";
 
     public String extractUsername(String token) {
+        //subject should be email or username
         return extractClaim(token, Claims::getSubject);
     }
     public String extractRole(String token) {
@@ -53,12 +54,9 @@ public class JwtHandler {
         return generateToken(new HashMap<>(), userDetails);
     }
 
-//    public String generateToken(Company userDetails) {
-//        claims.put("role", userDetails.getUserRole().toString());
-//        return createToken(claims, userDetails.getEmail());
-//    }
     private String generateToken(Map<String, Object> claims, UserDetails userDetails) {
 
+        // ici claims sont les extraclaims qu'on veut stocker dans payload
         return Jwts.builder().setClaims(claims).setSubject(userDetails.getUsername()).setSubject(UserRole.COMPANY.name())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 10))

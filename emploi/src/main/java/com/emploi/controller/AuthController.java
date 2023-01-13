@@ -22,6 +22,7 @@ import javax.naming.AuthenticationException;
 @RestController
 @RequestMapping
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 
 public class AuthController {
     private final AuthenticationManager authenticationManager;
@@ -32,7 +33,6 @@ public class AuthController {
 
     private final AuthService authService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/auth/")
     public String gets(){
         return "hello yeeeeees we do it !!";

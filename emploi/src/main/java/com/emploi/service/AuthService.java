@@ -82,10 +82,6 @@ public class AuthService {
         }
 
         return null;
-        // var company = companyRepo.findByEmail(request.getEmail()).orElseThrow();
-//        var jwtToken =jwtHandler.generateToken(company);
-//        return AuthenticationResponse.builder().token(jwtToken)
-//                .build();
     }
 
 

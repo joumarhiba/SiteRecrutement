@@ -21,7 +21,6 @@ public class ApplicationConfig {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
-    //new bean ..........
     @Bean
     public UserDetailsService userDetailsService(){
         return username -> companyRepo.findByEmail(username).orElseThrow(() ->new UsernameNotFoundException("this company noy found in db"));
