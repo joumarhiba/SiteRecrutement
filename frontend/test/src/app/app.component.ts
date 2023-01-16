@@ -77,6 +77,7 @@ export class AppComponent implements OnInit{
   this.homeService.addCompany(signUpForm.value).subscribe(
     (response: Company) => {
       console.log(response)
+      signUpForm.reset
     },
     (error: HttpErrorResponse) => {
       console.log(error);

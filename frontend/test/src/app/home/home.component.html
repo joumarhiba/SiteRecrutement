@@ -1,18 +1,44 @@
 <div id="main-container">
     <br>
+    <div class="my-4 flex justify-content-center">
+      <form #formSearch="ngForm" >
+        <div class="relative w-full">
+          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg aria-hidden="true" class="w-5 h-5 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+          </div>
+          <input type="search" name="key" placeholder="chercher une offre ..."
+          (ngModelChange)="search(key.value)" #key="ngModel" ngModel
+           class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 outline-none" required>
+      </div>
+        <input  >
+        <!-- <input type="submit" value="Search"> -->
+      </form>
+    </div>
+<div>
+
+</div>
+
+<router-outlet></router-outlet>
+
+<!-- list of validated offres -->
     <div class="container  flex-content-center gap-8">
-
-
     <div *ngFor="let offre of offres | paginate: { itemsPerPage: 3  , currentPage: p }" class="bootstrap-wrapper mb-4 bg-white border border-fuchsia-900  rounded-lg ">
-      <div class="p-5">
+      <div class="p-4">
           <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{ offre.title }}</h5>
+              <h5 class="mb-2 text-xl font-bold tracking-tight text-fuchsia-900">{{ offre.title }}</h5>
           </a>
-          <p>{{  offre.ville }}</p>
-          <p class=" overflow-hidden"> {{offre.description}}</p>
-          <button (click)="onOpenModal(offre, undefined, 'readMore')" (click)="getOffreDetails(offre)" type="button" class="bg-fuchsia-900 p-2 text-white rounded-md" data-toggle="modal" data-target="#ReadMoreModal">
-            voir plus
-           </button>
+         <div style="white-space: nowrap;" class="flex justify-between mt-4">
+          <div>
+            <span class="inline-block"><i class="inline-block fa fa-map-marker" aria-hidden="true"></i></span>&nbsp;<span class="inline-block"><p>{{  offre.ville }}</p></span> &nbsp; &nbsp;
+            <span class="inline-block"><i class="inline-block fa fa-user"></i></span>&nbsp;<span class="inline-block"><p>{{  offre.profil }}</p></span>
+          </div>
+          <div>
+            <button (click)="onOpenModal(offre, undefined, 'readMore')" (click)="getOffreDetails(offre)" type="button" class="bg-fuchsia-900 p-2 text-white rounded-md" data-toggle="modal" data-target="#ReadMoreModal">
+              voir plus
+             </button>
+          </div>
+          </div>
+          <!-- <p class=" overflow-hidden"> {{offre.description}}</p> -->
 
       </div>
     </div>

@@ -18,4 +18,9 @@ export class OffreService {
 public updateOffre(offre: Offre): Observable<Offre> {
   return this.http.put<any>(`${this.apiServerUrl}/Offre/update`, offre);
 }
+
+search(searchTerm: string){
+  return this.http.get<any>(`${this.apiServerUrl}/Offre/search?search=${searchTerm}`)
+}
+
 }

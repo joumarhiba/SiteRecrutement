@@ -118,4 +118,10 @@ isAdminLoggedIn(){
 }
 
 
+onSearch(request: any, search: string){
+    const params = request;
+    const profil = search;
+    return this.http.get<any>(`${this.apiServerUrl}/Offre/`+profil, {params})
+}
+
 }

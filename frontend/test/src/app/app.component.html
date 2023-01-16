@@ -1,5 +1,6 @@
 
-  <mat-toolbar>
+  <mat-toolbar class="bg-white">
+
    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
 
   </button>
@@ -18,6 +19,7 @@
   <a class="hover:cursor-pointer text-fuchsia-900 hover:text-fuchsia-800" *ngIf="loggedIn || AdminloggedIn" (click)="logoutUser()">Logout</a>
 </button>
 </mat-toolbar>
+<!-- <hr class="my-2 md:min-w-full" /> -->
 
 
 
@@ -140,7 +142,6 @@
       </div>
     </div>
   </div>
-
 
   <router-outlet></router-outlet>
 

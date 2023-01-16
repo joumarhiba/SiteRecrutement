@@ -3,6 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http'
 import { Offre } from '../offre/offre';
 import { Company } from '../Company/company';
 import { HomeService } from './home.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
     password : ''
   }
 
-  constructor(private homeService: HomeService){}
+  constructor(private homeService: HomeService, private router:Router){}
 
   ngOnInit(): void {
     this.getValidatedOffres();
@@ -91,5 +92,26 @@ export class HomeComponent implements OnInit {
         }
     );
   }
+
+
+  public search(key: string){
+    const results: Offre[] = [];
+
+    for(const offre of this.offres) {
+      if(offre.title.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || offre.description.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || offre.profil.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || offre.ville.toLowerCase().indexOf(key.toLowerCase()) !== -1 )
+      {
+          results.push(offre)
+      }
+    }
+    this.offres = results;
+    if(results.length === 0 || !key) {
+      this.getValidatedOffres();
+    }
+  }
+
+
 
 }

@@ -8,6 +8,7 @@ import { AdminService } from './admin.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
+
 export class AdminComponent implements OnInit {
   public p: number = 1;
   public offres: Offre[];
@@ -18,11 +19,12 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllOffres();
-
   }
 
   public getAllOffres() : void{
-    this.adminService.getAllOffres().subscribe(
+    this.adminService.getAllOffres()
+    // une fois que les données arrive , je récupère data (response)
+    .subscribe(
       (response: Offre[]) => {
         console.log(response);
         this.offres = response;

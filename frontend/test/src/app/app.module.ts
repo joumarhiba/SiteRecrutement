@@ -21,8 +21,8 @@ import { OffreComponent } from './offre/offre.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'
-import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
-import { SidebarComponent } from './sidebar/sidebar.component'
+import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { SidebarComponent } from './sidebar/sidebar.component'
     OffreComponent,
     AuthenticationComponent,
     SidebarComponent
-  ],
+    ],
   imports: [
     MatDialogModule,
     MatSlideToggleModule,

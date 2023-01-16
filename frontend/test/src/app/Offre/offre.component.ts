@@ -17,6 +17,7 @@ export class OffreComponent {
       this.offreService.addOffre(addOffreForm.value).subscribe(
         (response: Offre) => {
           console.log(response);
+          addOffreForm.reset
         },
         (error: HttpErrorResponse) => {
           console.log(error);

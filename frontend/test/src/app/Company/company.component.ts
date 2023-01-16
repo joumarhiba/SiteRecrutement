@@ -50,10 +50,10 @@ export class CompanyComponent implements OnInit{
 
   public updateOffre() {
     document.getElementById('close-modal')?.click();
-this.offreService.updateOffre(this.offreToUpdate).subscribe(
+    this.offreService.updateOffre(this.offreToUpdate).subscribe(
   (response: Offre) => {
-  console.log("the response "+response.company_id);
-  console.log("the offre to upadte "+this.offreToUpdate.company_id);
+  console.log("the response "+response);
+  window.location.reload()
   },
     (error: HttpErrorResponse) => {
     alert(error.message);

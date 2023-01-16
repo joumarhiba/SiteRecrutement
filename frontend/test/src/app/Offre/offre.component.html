@@ -1,3 +1,4 @@
+<app-sidebar></app-sidebar>
 <div class="container p-4">
   <section class="flex justify-content-center">
     <form #addOffreForm="ngForm" (ngSubmit)="addOffre(addOffreForm)">
@@ -13,7 +14,6 @@
 
           <div class="md-form mb-5">
             <select name="niveau" ngModel id="niveau" class="border border-gray-300 text text-sm rounded-lg block w-full p-2.5 form-control validate">
-                <option>Niveau</option>
                 <option>Bac</option>
                 <option>Bac + 2</option>
                 <option>Bac + 3</option>
@@ -40,7 +40,6 @@
             Save
             <i class="fa fa-paper-plane-o ml-1"></i>
           </button>
-          <button type="button" data-dismiss="modal" id="close-modal" class="rounded-md text-fuchsia-900 border-2 border-fuchsia-900 p-2">close</button>
         </div>
       </form>
   </section>
