@@ -45,7 +45,7 @@ public class AuthService {
                     .userRole(request.getUserRole())
                     .build();
             companyRepo.save(company);
-            System.out.println();
+
             var jwtToken =jwtHandler.generateToken(company);
             return AuthenticationResponse.builder().token(jwtToken)
                     .build();

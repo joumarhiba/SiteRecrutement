@@ -44,7 +44,6 @@ public class WebSecurityConfig {
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement()
-                //comment on peut creer cette session policy ? ==> stateless
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authenticationProvider(authenticationProvider)

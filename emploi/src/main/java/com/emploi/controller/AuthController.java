@@ -25,10 +25,6 @@ import javax.naming.AuthenticationException;
 @CrossOrigin(origins = "http://localhost:4200")
 
 public class AuthController {
-    private final AuthenticationManager authenticationManager;
-    private final AdminService adminService;
-    private final CompanyService companyService;
-    private final JwtHandler jwtHandler;
 
 
     private final AuthService authService;
@@ -37,6 +33,8 @@ public class AuthController {
     public String gets(){
         return "hello yeeeeees we do it !!";
     }
+
+
 
     @PostMapping("/auth/register")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request){

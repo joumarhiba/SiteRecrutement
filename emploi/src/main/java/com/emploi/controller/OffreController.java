@@ -55,10 +55,11 @@ public class OffreController {
         return delete;
     }
 
-    @PostMapping("/search/{profil}")
+    @GetMapping("/search/{profil}")
     public Offre searchOffre(@PathVariable("profil") String profil){
-            return offreService.findByProfil(profil);
+            return offreService.findByProfilContaining(profil);
     }
+
 
 
     @PostMapping("/companyOffres")

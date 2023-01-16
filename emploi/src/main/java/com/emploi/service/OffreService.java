@@ -7,7 +7,9 @@ import com.emploi.model.Offre;
 import com.emploi.model.UserRole;
 import com.emploi.repository.OffreRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -51,7 +53,8 @@ public class OffreService {
         return offreRepo.save(existsOffre);
     }
 
-    public Offre findByProfil(String profil){
+    @Query("FROM Offre AS o WHERE o.profil Like CONCAT('%',:profil, '%')")
+    public Offre findByProfilContaining(String profil){
         return offreRepo.findByProfil(profil);
     }
 
